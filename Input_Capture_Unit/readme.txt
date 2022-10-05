@@ -2,7 +2,7 @@ Registers involved:
 
 GPIO:
 DDRA: Data Direction Register for Port A= 0xFF for output
-DDRB: Data Direction Register for Port B= 0xFF for output
+DDRC: Data Direction Register for Port C= 0xFF for output
 PORTD: Port D Data Register= set as 0xFF to activate pull up registers
 
 Input Capture Unit(ICU):

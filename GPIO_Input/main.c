@@ -10,7 +10,7 @@ int main(void)
     //pin 37-port C0 ; C7- pin 30
      DDRC = 0xff;//port C direction: output
      DDRA = 0xff;//port A direction: output
-     DDRB = 0x00;//pin 10-13: Port B4 to B7 //direction: input
+     DDRB = 0x00;//pin 10-13: Port B4 to B7 //direction: input; pin 53-50: Port B0 to B3
      //PINB = 0x00;//clearing PINB register
      //PORTA = PINB;
      //while(1);

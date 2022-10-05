@@ -13,4 +13,3 @@ max current LED can tolerate:
 Resistance offered within the board(if any):
 
 
-Hi- change made

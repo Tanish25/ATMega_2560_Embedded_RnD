@@ -12,8 +12,8 @@ Bit 4= ADIF: ADC Interrupt Flag- This bit is set when an ADC conversion complete
 Bit [2:0] = 111 = Prescaler-128
 
 ADMUX: ADC Multiplexer = 0xC0
-Bit [7:6] = 11 = Vref= 2.56V
-Bit 5 = 0 = Result(10-bits-wide) is right-justified
+Bit [7:6] = 01 = Vref= AVcc = 5V
+Bit 5 = 1 = Result(10-bits-wide) is left-justified
 Bit [4:0] = 00000 = Input at ADC0
 
 ADCL: ADC Data Register Lower= stores the lower 8 bits of result of conversion

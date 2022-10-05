@@ -32,3 +32,5 @@ blanking time between top and bottom switch to avoid inverter
 leg shoot-through of the DC bus circuit. The type of the switch
 and pre-driver characteristics determine amount of the
 necessary blank time.
+
+for a difference of 2 decimal numbers in binary, and frequency of 8kHz, we obtain a deadtime of 1.5 microseconds
