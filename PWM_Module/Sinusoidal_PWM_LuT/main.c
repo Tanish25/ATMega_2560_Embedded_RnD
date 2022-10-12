@@ -6,7 +6,8 @@ int main(void)
 {
 	DDRB = 0xFF;//Port B set as output
 	//DDRB |= (1 <<3);//Port B(0:3) set as output
-	uint16_t testArray[360]={0x80,
+	//Look-up-Table:
+	static uint16_t testArray[360]={0x80,
 0x82,
 0x84,
 0x86,
@@ -367,14 +368,14 @@ int main(void)
 0x7b,
 0x7d};
 	while(1)
-	{
+	{TCCR0A = 0x83;//non-inverting pwm
+			TCCR0B = 0x03;//prescaler = 64 for frequency to be approx 1kHz
+			//output of pwm is at pin 13(OC0)
 		for(int i=0;i<360;i++)
 		{
 			OCR0A= testArray[i];
-			TCCR0A = 0x83;//non-inverting pwm
-			TCCR0B = 0x03;//prescaler = 64 for frequency to be approx 1kHz
-			//output of pwm is at pin 13(OC0)
-			_delay_ms(50);
+			
+			_delay_us(27);
 		}
 		//OCR0A= testArray[0];
 		/*OCR0A = 0x80;

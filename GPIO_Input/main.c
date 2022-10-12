@@ -17,6 +17,8 @@ int main(void)
 
     //enabling pull-up resistors//use=?//default output when pull-up enabled=high
     PORTB = 0xff;
+    while(1)
+        {PORTA= PINB;}
     //PORTC = 0xff;
     //PORTB=0x00;//disabling pull-up resistors?//does it help or not?
     while(1)
