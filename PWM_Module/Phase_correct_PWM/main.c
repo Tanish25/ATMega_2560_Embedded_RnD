@@ -54,24 +54,24 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 	DDRE = 0xFF;//Port E set as output for complementary PWM pins
 	 	
 	
-	TCCR1A = 0xAB;//non-inverting pwm; mode-7: 10-bit Fast PWM
-	TCCR1B = 0x0A;//prescaler = 8 for frequency to be approx 2kHz
+	TCCR1A = 0xFF;//inverting pwm; mode-3: 10-bit phase-correct(dual-slope) PWM
+	TCCR1B = 0x02;//prescaler = 8 for frequency to be approx 1kHz
 
-	TCCR3A = 0xFF;//inverting pwm; mode-7: 10-bit Fast PWM
-	TCCR3B = 0x0A;//prescaler = 8 for frequency to be approx 2kHz
+	TCCR3A = 0xAB;//non-inverting pwm; mode-3: 10-bit phase-correct(dual-slope) PWM
+	TCCR3B = 0x02;//prescaler = 8 for frequency to be approx 1kHz
 
-	//output of pwm is at pin 13(OC1C)
-	//output of pwm is at pin 12(OC1B)
-	//output of pwm is at pin 11(OC1A)
+	//output of pwm is at pin 13(OC1C)//inverting
+	//output of pwm is at pin 12(OC1B)//inverting
+	//output of pwm is at pin 11(OC1A)//inverting
 		
 
 		//Output of complementary pins:	 	
-	//output of pwm is at pin 3(OC3C)
-	//output of pwm is at pin 2(OC3B)
-	//output of pwm is at pin 5(OC3A)
+	//output of pwm is at pin 3(OC3C)//non-inverting
+	//output of pwm is at pin 2(OC3B)//non-inverting
+	//output of pwm is at pin 5(OC3A)//non-inverting
 
 
-	//-2 is to induce deadtime
+	//-n is to induce deadtime
 
 	while(1)
 	{
@@ -101,10 +101,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 
 
-			if(testArray[i]>1)
+			if(testArray[i]>7)
 			{
-			OCR3AL= testArray[i]-2;
-			OCR3AH=(testArray[i]-2)>>8;
+			OCR3AL= testArray[i]-8;
+			OCR3AH=(testArray[i]-8)>>8;
 			}
 			else
 			{
@@ -113,10 +113,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 			if((i+120)>359)
 			{
-				if(testArray[i+120-360]>1)
+				if(testArray[i+120-360]>7)
 				{
-				OCR3CL =  testArray[i+120-360]-2;
-	     		OCR3CH =  (testArray[i+120-360]-2)>>8;
+				OCR3CL =  testArray[i+120-360]-8;
+	     		OCR3CH =  (testArray[i+120-360]-8)>>8;
 	     		}
 	     		else
 	     		{
@@ -126,10 +126,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 			else
 			{
-				if(testArray[i+120]>1)
+				if(testArray[i+120]>7)
 				{
-				OCR3CL =  testArray[i+120]-2;
-	     		OCR3CH =  (testArray[i+120]-2)>>8;
+				OCR3CL =  testArray[i+120]-8;
+	     		OCR3CH =  (testArray[i+120]-8)>>8;
 	     		}
 	     		else
 	     		{
@@ -139,10 +139,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 			if((i+240)>359)
 			{
-				if(testArray[i+240-360]>1)
+				if(testArray[i+240-360]>7)
 				{
-				OCR3BL =  testArray[i+240-360]-2;
-	     		OCR3BH =  (testArray[i+240-360]-2)>>8;
+				OCR3BL =  testArray[i+240-360]-8;
+	     		OCR3BH =  (testArray[i+240-360]-8)>>8;
 	     		}
 	     		else
 	     		{
@@ -152,10 +152,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 			else
 			{
-				if(testArray[i+240]>1)
+				if(testArray[i+240]>7)
 				{
-				OCR3BL =  testArray[i+240]-2;
-	     		OCR3BH =  (testArray[i+240]-2)>>8;
+				OCR3BL =  testArray[i+240]-8;
+	     		OCR3BH =  (testArray[i+240]-8)>>8;
 	     		}
 	     		else
 	     		{
@@ -163,8 +163,8 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 	     		OCR3BH =  testArray[i+240]>>8;
 	     		}
 			}
-			_delay_ms(10);
-			//_delay_us(50);
+			//_delay_ms(10);
+			_delay_us(50);
 
 	
 		}
