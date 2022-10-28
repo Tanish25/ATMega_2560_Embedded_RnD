@@ -37,9 +37,9 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 109,103,98,93,88,83,78,73,
 69,64,60,56,52,48,44,41,
 37,34,31,28,25,22,20,17,
-15,13,11,9,8,6,5,4,
-3,2,1,1,0,0,0,0,
-0,1,1,2,3,4,5,6,
+15,13,11,9,8,8,8,8,
+8,8,8,8,8,8,8,8,
+8,8,8,8,8,8,8,8,
 8,9,11,13,15,17,20,22,
 25,28,31,34,37,41,44,48,
 52,56,60,64,69,73,78,83,
@@ -101,67 +101,33 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			}
 
 
-			if(testArray[i]>7)
-			{
+			
+			
 			OCR3AL= testArray[i]-8;
 			OCR3AH=(testArray[i]-8)>>8;
-			}
-			else
-			{
-			OCR3AL= testArray[i];
-			OCR3AH=testArray[i]>>8;
-			}
+		
 			if((i+120)>359)
 			{
-				if(testArray[i+120-360]>7)
-				{
+				
 				OCR3CL =  testArray[i+120-360]-8;
 	     		OCR3CH =  (testArray[i+120-360]-8)>>8;
-	     		}
-	     		else
-	     		{
-				OCR3CL =  testArray[i+120-360];
-	     		OCR3CH =  testArray[i+120-360]>>8;
-	     		}
+	     	
 			}
 			else
 			{
-				if(testArray[i+120]>7)
-				{
 				OCR3CL =  testArray[i+120]-8;
 	     		OCR3CH =  (testArray[i+120]-8)>>8;
-	     		}
-	     		else
-	     		{
-				OCR3CL =  testArray[i+120];
-	     		OCR3CH =  testArray[i+120]>>8;
-	     		}
+	     		
 			}
 			if((i+240)>359)
 			{
-				if(testArray[i+240-360]>7)
-				{
 				OCR3BL =  testArray[i+240-360]-8;
 	     		OCR3BH =  (testArray[i+240-360]-8)>>8;
-	     		}
-	     		else
-	     		{
-				OCR3BL =  testArray[i+240-360];
-	     		OCR3BH =  testArray[i+240-360]>>8;
-	     		}
-			}
+	     		
 			else
 			{
-				if(testArray[i+240]>7)
-				{
 				OCR3BL =  testArray[i+240]-8;
 	     		OCR3BH =  (testArray[i+240]-8)>>8;
-	     		}
-	     		else
-	     		{
-				OCR3BL =  testArray[i+240];
-	     		OCR3BH =  testArray[i+240]>>8;
-	     		}
 			}
 			//_delay_ms(10);
 			_delay_us(50);
