@@ -71,23 +71,23 @@ int main(void)
 			OCR1AH=testArray[i]>>8;
 			if((i+120)>359)
 			{
-			OCR1BL =  testArray[i+120-360];
-     		OCR1BH =  testArray[i+120-360]>>8;
+			OCR1CL =  testArray[i+120-360];
+     		OCR1CH =  testArray[i+120-360]>>8;
 			}
 			else
 			{
-			OCR1BL =  testArray[i+120];
-     		OCR1BH =  testArray[i+120]>>8;
+			OCR1CL =  testArray[i+120];
+     		OCR1CH =  testArray[i+120]>>8;
 			}
 			if((i+240)>359)
 			{
-			OCR1CL =  testArray[i+240-360];
-     		OCR1CH =  testArray[i+240-360]>>8;
+			OCR1BL =  testArray[i+240-360];
+     		OCR1BH =  testArray[i+240-360]>>8;
 			}
 			else
 			{
-			OCR1CL =  testArray[i+240];
-     		OCR1CH =  testArray[i+240]>>8;
+			OCR1BL =  testArray[i+240];
+     		OCR1BH =  testArray[i+240]>>8;
 			}
 			_delay_us(50);
 
