@@ -11,10 +11,10 @@ Bit 6= ADSC: ADC Start Conversion Bit- In Single Conversion mode, write this bit
 Bit 4= ADIF: ADC Interrupt Flag- This bit is set when an ADC conversion completes and the Data Registers are updated
 Bit [2:0] = 111 = Prescaler-128
 
-ADMUX: ADC Multiplexer = 0xC0
+ADMUX: ADC Multiplexer = 0x61
 Bit [7:6] = 01 = Vref= AVcc = 5V
 Bit 5 = 1 = Result(10-bits-wide) is left-justified
-Bit [4:0] = 00000 = Input at ADC0
+Bit [4:0] = 00001 = Input at ADC0
 
 ADCL: ADC Data Register Lower= stores the lower 8 bits of result of conversion
 ADCH: ADC Data Register Higher= stores the higher 8 bits of result of conversion
