@@ -55,10 +55,10 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 	 	
 	
 	TCCR1A = 0xAB;//non-inverting pwm; mode-7: 10-bit Fast PWM
-	TCCR1B = 0x0A;//prescaler = 8 for frequency to be approx 2kHz
+	TCCR1B = 0x0A;//prescaler = 8 for frequency to be approx 1kHz
 
 	TCCR3A = 0xFF;//inverting pwm; mode-7: 10-bit Fast PWM
-	TCCR3B = 0x0A;//prescaler = 8 for frequency to be approx 2kHz
+	TCCR3B = 0x0A;//prescaler = 8 for frequency to be approx 1kHz
 
 	//output of pwm is at pin 13(OC1C)
 	//output of pwm is at pin 12(OC1B)

@@ -9,7 +9,8 @@
 int main(void)
 {
 	 DDRB = 0xFF;//Port B set as output
-	 
+	  ADCSRA = 0x87;// ADC enabled and prescaler=128
+     ADMUX = 0x61;// Ref= Vcc// data is left-justified //ADC0 is source pin
      while(1)
      {
         //ADIF=0 ifu wanna reset, otherwise you keep it as 1 so that conversion doesnt start again

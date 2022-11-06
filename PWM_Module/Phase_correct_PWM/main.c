@@ -123,7 +123,7 @@ static uint16_t testArray[360]={512,521,530,539,548,557,566,574,
 			{
 				OCR3BL =  testArray[i+240-360]-8;
 	     		OCR3BH =  (testArray[i+240-360]-8)>>8;
-	     		
+	     	}	
 			else
 			{
 				OCR3BL =  testArray[i+240]-8;
