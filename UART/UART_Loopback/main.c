@@ -12,7 +12,7 @@ int main(void)
 		DDRC = 0xFF;//PORTC for output
 		//char c='A';
 		//UDR0 = (uint8_t)c;
-		UDR0= 0x00;
+		UDR0= 0xFF;
 		UBRR0H = 0; //Baud rate registers
 	    UBRR0L = (uint8_t) (F_CPU / 16/ BAUDRATE)-1;
 
@@ -29,11 +29,9 @@ int main(void)
 	    UCSR1B |= (1 << RXEN1);//Receiver is being enabled
 	    UCSR1C |= 0x06;//Transmission size = 8 bit; asynchronous transmission
 	    //while(1)
-	    {
-	    	while(!(UCSR1A && (1<<RXC1)));//wait until character is received
-	    	//while(RXC1 bit is not 0)
-	    	PORTC = UDR1;
-	    }
+	    //while(!(UCSR1A && (1<<RXC1)));//wait until character is received
+	    //while(RXC1 bit is not 0)
+	    PORTC = 0xFF;
 
 	    /*
 	      //UCSR0A is at its default values;
