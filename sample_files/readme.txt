@@ -1,2 +1,0 @@
-This folder consists of a few files which can be referred to as a sample file, for what the contents of each file looks like.
-You can view what object files, hex files and executable files look like..each whose 2-3 examples have been included 
