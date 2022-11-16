@@ -1,4 +1,4 @@
-This program is capture Input at the prescribed pin
+This program is to capture Input at the prescribed pin
 
 ### Registers involved:
 
