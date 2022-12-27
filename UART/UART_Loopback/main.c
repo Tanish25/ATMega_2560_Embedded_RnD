@@ -37,7 +37,7 @@ int main(void)
 		//UBRR1L = (uint8_t) (F_CPU / 16/ BAUDRATE)-1;
 		UBRR1L = 8; 
 		UCSR1A = 0x00;
-		UCSR1B = (1 << RXEN0);//Transmitter is being enabled
+		UCSR1B = (1 << RXEN0);//Receiver is being enabled
 		UCSR1C = 0x06;//Transmission size = 8 bit; asynchronous transmission
 
 
@@ -46,27 +46,33 @@ int main(void)
 	while(1)
 	{
 		PORTC=0x00;
-		PORTL=RXC1;
-		//RXC1=0;
+		PORTL=0x00;
+		UCSR1A &= 0x8F;//RXC1=0
 		/*
 		while(UCSR1A && (1<<RXC1))
 		{
-			//PORTC |= 0x01;
+			PORTC |= 0x01;
 						dummy = UDR1;
 		}
 		*/
 		
 		
 		
-			UCSR0B = (1 << TXEN0);
-	    	PORTC = 0x01;
-	    	UDR0= 0xFF;
-
-	    	while(!(UCSR1A && (1<<RXC1))); //wait until character is received
-			dummy = UDR1;
 		
-		PORTC = 0x02;
+			UCSR0B = (1 << TXEN0);
+	    	
+	    	UDR0= 0x01;
+
+	    	PORTC = 0x01;
+	    	//while(RXC1==0);
+	    	while(!(UCSR1A && (1<<RXC1))); //wait until character is received
+	    	PORTC = 0x02;
+			
+			dummy = UDR1;
+			//PORTL=dummy;
+		
 		PORTA = dummy;
+		//PORTL = UCSR0A;
 		
 		//while(1);
 
@@ -75,6 +81,10 @@ int main(void)
 	
 	    //_delay_ms(50);
 	
+    return 0;
+}
+//PORT A= 22-29; PORT C = 37-30; PORTL= 42-49
+
     return 0;
 }
 //PORT A= 22-29; PORT C = 37-30; PORTL= 42-49
